@@ -10,8 +10,8 @@ An example Docker container for Drupal projects, inheriting from [andrewholgate/
 ## Database data container
 
 ```bash
-# Build database image based off MySQL 5.5
-sudo docker run -d --name drupal-example-mysql mysql:5.5 --entrypoint /bin/echo MySQL data-only container for Drupal project example
+# Build database image based off MySQL 5.6
+sudo docker run -d --name drupal-example-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project example
 ```
 
 ## Build Project using Docker Compose
@@ -35,14 +35,12 @@ sudo docker-compose up -d
 
 ## Add IP to host
 
-From the host server, add the web container IP address to the hosts file executing
-the following script
-
 ```bash
+# Add the web container IP address to hosts file
 ./host.sh
 ```
 
-# Logging Into Web Frontend
+# Logging into Web Frontend
 
 ```bash
 # Using the container name of the web frontend.

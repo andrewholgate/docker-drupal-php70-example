@@ -1,8 +1,8 @@
 drupalexampleweb:
   build: .
   ports:
-   - "81:80"
-   - "444:443"
+   - "83:80"
+   - "446:443"
   links:
    - drupalexampledb:database
   volumes:
@@ -12,7 +12,7 @@ drupalexampleweb:
     - ~/.npm:/home/ubuntu/.npm
     - ~/.npm-packages:/home/ubuntu/.npm-packages
 drupalexampledb:
-  image: mysql:5.5
+  image: mysql:5.6
   volumes_from:
     - drupal-example-mysql
   environment:
