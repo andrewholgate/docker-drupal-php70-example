@@ -35,14 +35,11 @@ sudo docker-compose up -d
 
 ## Add IP to host
 
-From the host server, add the web container IP address to the hosts file.
+From the host server, add the web container IP address to the hosts file executing
+the following script
 
 ```bash
-# Add IP address to hosts file.
-sudo bash -c "echo $(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' \
-dockerdrupalprojectexample_drupalexampleweb_1) \
-example.drupalproject.com \
->> /etc/hosts"
+./host.sh
 ```
 
 # Logging Into Web Frontend
