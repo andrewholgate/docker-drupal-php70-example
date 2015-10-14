@@ -51,6 +51,8 @@ sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
 
 # Configuration
 
-## Project sources path
+## Project directories and paths
 
-This example make the assumption that the sources of your Drupal project are installed under ` ~/develop/projects/drupal-example`. Consider to change this value when you copy the [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
+This example make the assumption that your project root is installed under ` ~/develop/projects/drupal-example`. Consider to change this value when you copy the [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
+
+Unless you do not change the [setup.sh](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh), be aware that the project root should contain the following subdirectories `repo/docroot`. The `docroot`  will be served as (public directoy)[https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L6) by Apache. In other word your Drupal files should be under `docroot`.
