@@ -48,3 +48,9 @@ the following script
 # Using the container name of the web frontend.
 sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
 ```
+
+# Configuration
+
+## Project sources path
+
+This example make the assumption that the sources of your Drupal project are installed under ` ~/develop/projects/drupal-example`. Consider to change this value when you copy the [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
