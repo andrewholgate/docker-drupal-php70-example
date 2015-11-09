@@ -33,10 +33,9 @@ sudo docker-compose build | tee ./build.log
 sudo docker-compose up -d
 ```
 
-## Add IP to Host
+## Add IP to Host File
 
-From the host server, add the web container IP address to the hosts file executing
-the following script
+Add web container IP address to hosts file
 
 ```bash
 ./host.sh
@@ -49,10 +48,12 @@ the following script
 sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
 ```
 
-# Configuration
+# Project Configurations
 
-## Project Assumptions
+1. Add [project specific server configurations](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/Dockerfile#L8).
 
-The default configuration assumes that the project is installed under [`~/develop/projects/drupal-example`](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
+1. Update the [Docker project volume](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9) to match your project path.
 
-By default, the project root should contain the sub-directory `repo/docroot` with `docroot` being served as the [document root](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L6) by Apache.
+1. Update the [project variables for the hosts file](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/host.sh#L4-L5).
+
+1. Add [custom commands to the project build](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L7), such as symlinks to the project root.
