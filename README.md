@@ -7,18 +7,18 @@ An example Docker container for Drupal projects, inheriting from [andrewholgate/
 
 # Installation
 
-## Database data container
+## Database Data Container
 
 ```bash
-# Build database image based off MySQL 5.5
-sudo docker run -d --name drupal-example-mysql mysql:5.5 --entrypoint /bin/echo MySQL data-only container for Drupal project example
+# Build database image based off MySQL 5.6
+sudo docker run -d --name drupal-example-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project example
 ```
 
 ## Build Project using Docker Compose
 
 ```bash
 # Clone Drupal development docker rep
-git clone git@bitbucket.org:andrewholgate/docker-drupal-project-example.git
+git clone git@github.com:andrewholgate/docker-drupal-project-example.git
 cd docker-drupal-project-example
 
 # Customise docker-compose.yml file according to project requirements.
@@ -33,7 +33,7 @@ sudo docker-compose build | tee ./build.log
 sudo docker-compose up -d
 ```
 
-## Add IP to host
+## Add IP to Host
 
 From the host server, add the web container IP address to the hosts file executing
 the following script
@@ -42,7 +42,7 @@ the following script
 ./host.sh
 ```
 
-# Logging Into Web Frontend
+# Logging into Web Frontend
 
 ```bash
 # Using the container name of the web frontend.
@@ -51,8 +51,8 @@ sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
 
 # Configuration
 
-## Project directories and paths
+## Project Assumptions
 
-This example make the assumption that your project root is installed under ` ~/develop/projects/drupal-example`. Consider to change this value when you copy the [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
+The default configuration assumes that the project is installed under [`~/develop/projects/drupal-example`](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
 
-Unless you do not change the [setup.sh](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh), be aware that the project root should contain the following subdirectories `repo/docroot`. The `docroot`  will be served as (public directoy)[https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L6) by Apache. In other word your Drupal files should be under `docroot`.
+By default, the project root should contain the sub-directory `repo/docroot` with `docroot` being served as the [document root](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L6) by Apache.
