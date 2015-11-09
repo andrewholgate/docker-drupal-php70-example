@@ -5,7 +5,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 # Project specific PHP dependencies.
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-mcrypt php5-ldap
+#RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-mcrypt php5-ldap
 
 # Copy over project specific setup script
 COPY setup.sh /usr/local/bin/setup
