@@ -12,7 +12,7 @@ drupalexampleweb:
     - ~/.npm:/home/ubuntu/.npm
     - ~/.npm-packages:/home/ubuntu/.npm-packages
 drupalexampledb:
-  image: mysql:5.5
+  image: mysql:5.6
   volumes_from:
     - drupal-example-mysql
   environment:

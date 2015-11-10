@@ -13,4 +13,6 @@ sudo sed -i_bak -e "/$URL/d" /etc/hosts
 sudo bash -c "echo $(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' \
 $CONTAINER_NAME) $URL >> /etc/hosts"
 
-echo Opening with: xdg-open http://$URL
+echo
+echo Login to container: sudo docker exec -it $CONTAINER_NAME su - ubuntu
+echo Opening site: xdg-open http://$URL
