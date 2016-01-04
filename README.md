@@ -1,4 +1,4 @@
-An example Docker container for Drupal projects, inheriting from [andrewholgate/drupal-php55-dev](https://hub.docker.com/r/andrewholgate/drupal-php55-dev/).
+An example Docker container for Drupal projects using PHP7.0, HTTP/2; inheriting from [andrewholgate/drupal-php70-dev](https://hub.docker.com/r/andrewholgate/drupal-php70-dev/).
 
 # Prerequisites
 
@@ -7,19 +7,19 @@ An example Docker container for Drupal projects, inheriting from [andrewholgate/
 
 # Installation
 
-## Database Data Container
+## Database data container
 
 ```bash
 # Build database image based off MySQL 5.6
-sudo docker run -d --name drupal-example-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project example
+sudo docker run -d --name drupal-php70-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project PHP7.0
 ```
 
 ## Build Project using Docker Compose
 
 ```bash
 # Clone Drupal development docker rep
-git clone git@github.com:andrewholgate/docker-drupal-project-example.git
-cd docker-drupal-project-example
+git clone https://github.com/andrewholgate/docker-drupal-php70-example.git
+cd docker-drupal-php70-example
 
 # Customise docker-compose.yml file according to project requirements.
 cp docker-compose.yml.dist docker-compose.yml
@@ -33,11 +33,13 @@ sudo docker-compose build | tee ./build.log
 sudo docker-compose up -d
 ```
 
-## Add IP to Host File
+## Add IP to host
 
-Add web container IP address to hosts file
+From the host server, add the web container IP address to the hosts file executing
+the following script
 
 ```bash
+# Add the web container IP address to hosts file
 ./host.sh
 ```
 
@@ -45,15 +47,13 @@ Add web container IP address to hosts file
 
 ```bash
 # Using the container name of the web frontend.
-sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
+sudo docker exec -it dockerdrupalphp70example_drupalphp70exampleweb_1 su - ubuntu
 ```
 
-# Project Configurations
+# Configuration
 
-1. Add [project specific server configurations](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/Dockerfile#L8).
+## Project directories and paths
 
-1. Update the [Docker project volume](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9) to match your project path.
+This example assumes the project root is under ` ~/develop/projects/drupal-example`. It can be modified when copying [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-php70-example/blob/master/docker-compose.yml.dist#L9)
 
-1. Update the [project variables for the hosts file](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/host.sh#L4-L5).
-
-1. Add [custom commands to the project build](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L7), such as symlinks to the project root.
+The [setup.sh](https://github.com/andrewholgate/docker-drupal-php70-example/blob/master/setup.sh) can be used to add symlinks to the project root for Apache, etc.

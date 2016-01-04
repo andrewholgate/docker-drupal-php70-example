@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Project variables.
-URL=example.drupalproject.com
-CONTAINER_NAME=dockerdrupalprojectexample_drupalexampleweb_1
+URL=drupalphp70.example.com
+CONTAINER_NAME=dockerdrupalphp70example_drupalphp70exampleweb_1
 
 # DO NOT EDIT BELOW
 
