@@ -1,4 +1,4 @@
-An example Docker container for Drupal projects, inheriting from [andrewholgate/drupal-php55-dev](https://hub.docker.com/r/andrewholgate/drupal-php55-dev/).
+An example Docker container for Drupal projects using PHP7.0, HTTP/2; inheriting from [andrewholgate/drupal-php70-dev](https://hub.docker.com/r/andrewholgate/drupal-php70-dev/).
 
 # Prerequisites
 
@@ -11,15 +11,15 @@ An example Docker container for Drupal projects, inheriting from [andrewholgate/
 
 ```bash
 # Build database image based off MySQL 5.6
-sudo docker run -d --name drupal-example-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project example
+sudo docker run -d --name drupal-php70-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project PHP7.0
 ```
 
 ## Build Project using Docker Compose
 
 ```bash
 # Clone Drupal development docker rep
-git clone git@bitbucket.org:andrewholgate/docker-drupal-project-example.git
-cd docker-drupal-project-example
+git clone https://github.com/andrewholgate/docker-drupal-php70-example.git
+cd docker-drupal-php70-example
 
 # Customise docker-compose.yml file according to project requirements.
 cp docker-compose.yml.dist docker-compose.yml
@@ -44,13 +44,13 @@ sudo docker-compose up -d
 
 ```bash
 # Using the container name of the web frontend.
-sudo docker exec -it dockerdrupalprojectexample_drupalexampleweb_1 su - ubuntu
+sudo docker exec -it dockerdrupalphp70example_drupalphp70exampleweb_1 su - ubuntu
 ```
 
 # Configuration
 
 ## Project directories and paths
 
-This example make the assumption that your project root is installed under ` ~/develop/projects/drupal-example`. Consider to change this value when you copy the [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/docker-compose.yml.dist#L9)
+This example assumes the project root is under ` ~/develop/projects/drupal-example`. It can be modified when copying [docker-compose.yml.dist](https://github.com/andrewholgate/docker-drupal-php70-example/blob/master/docker-compose.yml.dist#L9)
 
-Unless you do not change the [setup.sh](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh), be aware that the project root should contain the following subdirectories `repo/docroot`. The `docroot`  will be served as [public directory](https://github.com/andrewholgate/docker-drupal-project-example/blob/master/setup.sh#L5-L6) by Apache. In other word your Drupal files should be under `docroot`.
+The [setup.sh](https://github.com/andrewholgate/docker-drupal-php70-example/blob/master/setup.sh) can be used to add symlinks to the project root for Apache, etc.

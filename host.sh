@@ -1,8 +1,18 @@
-# Clean up previous IP address entry for the same host name.
-sudo sed -i_bak -e '/example\.drupalproject\.com/d' /etc/hosts
+#!/bin/bash
+
+# Project variables.
+URL=drupalphp70.example.com
+CONTAINER_NAME=dockerdrupalphp70example_drupalphp70exampleweb_1
+
+# DO NOT EDIT BELOW
+
+# Remove IP address entry for the host name.
+sudo sed -i_bak -e "/$URL/d" /etc/hosts
 
 # Add IP address to hosts file.
 sudo bash -c "echo $(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' \
-dockerdrupalprojectexample_drupalexampleweb_1) \
-example.drupalproject.com \
->> /etc/hosts"
+$CONTAINER_NAME) $URL >> /etc/hosts"
+
+echo
+echo Login to container: sudo docker exec -it $CONTAINER_NAME su - ubuntu
+echo Opening site: xdg-open http://$URL
