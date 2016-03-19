@@ -10,8 +10,8 @@ An example Docker container for Drupal projects using PHP7.0, HTTP/2; inheriting
 ## Database data container
 
 ```bash
-# Build database image based off MySQL 5.6
-sudo docker run -d --name drupal-php70-mysql mysql:5.6 --entrypoint /bin/echo MySQL data-only container for Drupal project PHP7.0
+# Build database image based off MySQL 5.7
+sudo docker run -d --name drupal-php70-mysql mysql:5.7 --entrypoint /bin/echo MySQL data-only container for Drupal project PHP7.0
 ```
 
 ## Build Project using Docker Compose
