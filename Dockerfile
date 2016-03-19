@@ -1,4 +1,4 @@
-FROM andrewholgate/drupal-php70:latest
+FROM andrewholgate/drupal-php70-dev:latest
 MAINTAINER Andrew Holgate <andrewholgate@yahoo.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
