@@ -9,8 +9,6 @@ drupalphp70exampleweb:
     - ~/develop/projects/drupal-example:/var/www/project
     - ~/.ssh:/home/ubuntu/.ssh
     - ~/.composer:/home/ubuntu/.composer
-    - ~/.npm:/home/ubuntu/.npm
-    - ~/.npm-packages:/home/ubuntu/.npm-packages
 drupalphp70exampledb:
   image: mysql:5.7
   volumes_from:
