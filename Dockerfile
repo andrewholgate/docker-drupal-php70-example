@@ -15,6 +15,9 @@ RUN chmod +x /usr/local/bin/setup
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y autoclean && \
     DEBIAN_FRONTEND=noninteractive apt-get -y autoremove
 
+# Apache does not like PID files pre-existing
+RUN rm -f /var/run/apache2/apache2.pid
+
 RUN service apache2 restart
 RUN service php7.0-fpm start
 
