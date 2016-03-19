@@ -29,7 +29,7 @@ vim docker-compose.yml
 vim Dockerfile
 
 # Build docker containers using Docker Compose.
-sudo docker-compose build | tee ./build.log
+sudo docker-compose build --no-cache | tee ./build.log
 sudo docker-compose up -d
 ```
 
