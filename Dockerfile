@@ -1,4 +1,4 @@
-FROM andrewholgate/drupal-php70-dev:latest
+FROM andrewholgate/drupal-php70:latest
 MAINTAINER Andrew Holgate <andrewholgate@yahoo.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -14,6 +14,9 @@ RUN chmod +x /usr/local/bin/setup
 # Clean-up installation.
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y autoclean && \
     DEBIAN_FRONTEND=noninteractive apt-get -y autoremove
+
+# Apache does not like PID files pre-existing
+RUN rm -f /var/run/apache2/apache2.pid
 
 RUN service apache2 restart
 RUN service php7.0-fpm start
